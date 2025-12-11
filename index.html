@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Special Wish For You</title>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7RKR9Z0V3H"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-7RKR9Z0V3H');
+    </script>
     <style>
         body {
             background: linear-gradient(45deg, #ff9a9e, #fad0c4);
@@ -30,7 +39,6 @@
         h2 { color: #333; margin-top: 0; }
         .wish-text { font-size: 1.2rem; line-height: 1.6; color: #555; }
         
-        /* The Input Area You Requested */
         .input-container {
             margin-top: 30px;
             border-top: 2px dashed #eee;
@@ -86,27 +94,34 @@
     </div>
 
     <script>
-        // 1. Get the URL parameters
+        // 1. Get the URL parameters to show the greeting
         const urlParams = new URLSearchParams(window.location.search);
         const nameFromUrl = urlParams.get('name');
 
-        // 2. If a name exists in the URL, update the greeting
         if (nameFromUrl) {
             document.getElementById('greeting').innerHTML = "⚡ " + nameFromUrl + " ⚡<br>Wishes You";
             document.title = nameFromUrl + " sent you a wish!";
+            
+            // Track that someone viewed a wish (Optional, extra tracking)
+            gtag('event', 'view_wish', { 'viewed_name': nameFromUrl });
+            
         } else {
             document.getElementById('greeting').innerText = "Welcome!";
         }
 
-        // 3. Function to generate the new link
+        // 2. Function to generate the new link
         function createLink() {
-            // Get value from the input named "name"
             const nameValue = document.getElementById('nameInput').value.trim();
             
             if(!nameValue) {
                 alert("Please enter your name first!");
                 return;
             }
+
+            // --- GOOGLE ANALYTICS TRACKING ---
+            // This sends the name they typed to your Google Analytics dashboard
+            gtag('event', 'create_wish', { 'user_name': nameValue });
+            // ---------------------------------
 
             // Create the new URL
             const baseUrl = window.location.origin + window.location.pathname;
@@ -126,4 +141,7 @@
         }
     </script>
 </body>
+</html>
+</body>
+
 </html>
