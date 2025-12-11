@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Wish For You</title>
+    <style>
+        body {
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            max-width: 400px;
+            width: 100%;
+            animation: popIn 0.5s ease;
+        }
+        h1 { color: #ff3f34; font-size: 2.5rem; margin-bottom: 10px; }
+        h2 { color: #333; margin-top: 0; }
+        .wish-text { font-size: 1.2rem; line-height: 1.6; color: #555; }
+        
+        /* The Input Area You Requested */
+        .input-container {
+            margin-top: 30px;
+            border-top: 2px dashed #eee;
+            padding-top: 20px;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        button {
+            background-color: #25D366; /* WhatsApp Green */
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover { background-color: #128C7E; }
+
+        @keyframes popIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2 id="greeting">Waiting for name...</h2>
+        
+        <h1>Happy New Year!</h1>
+        <p class="wish-text">
+            May this year bring you endless joy, success, and prosperity. 
+            <br>✨ 2025 ✨
+        </p>
+
+        <div class="input-container">
+            <p>Create your own magic link:</p>
+            
+            <input type="text" id="nameInput" name="name" placeholder="Enter your Name here">
+            <br>
+            <button onclick="createLink()">Create & Share 🚀</button>
+        </div>
+        
+        <p id="shareArea" style="display:none; margin-top:15px; font-size: 0.9rem; background:#f9f9f9; padding:10px; border-radius:5px; word-break: break-all;"></p>
+    </div>
+
+    <script>
+        // 1. Get the URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const nameFromUrl = urlParams.get('name');
+
+        // 2. If a name exists in the URL, update the greeting
+        if (nameFromUrl) {
+            document.getElementById('greeting').innerHTML = "⚡ " + nameFromUrl + " ⚡<br>Wishes You";
+            document.title = nameFromUrl + " sent you a wish!";
+        } else {
+            document.getElementById('greeting').innerText = "Welcome!";
+        }
+
+        // 3. Function to generate the new link
+        function createLink() {
+            // Get value from the input named "name"
+            const nameValue = document.getElementById('nameInput').value.trim();
+            
+            if(!nameValue) {
+                alert("Please enter your name first!");
+                return;
+            }
+
+            // Create the new URL
+            const baseUrl = window.location.origin + window.location.pathname;
+            const newUrl = baseUrl + "?name=" + encodeURIComponent(nameValue);
+
+            // Show the share link
+            const shareArea = document.getElementById('shareArea');
+            shareArea.style.display = 'block';
+            shareArea.innerHTML = `
+                <strong>Copy this link:</strong><br>
+                <a href="${newUrl}">${newUrl}</a>
+                <br><br>
+                <a href="whatsapp://send?text=*${nameValue}* has sent you a special surprise! Open this: ${newUrl}" style="color:#25D366; font-weight:bold; text-decoration:none;">
+                    Click here to Share on WhatsApp
+                </a>
+            `;
+        }
+    </script>
+</body>
+</html>
