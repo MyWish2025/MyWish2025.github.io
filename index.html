@@ -39,7 +39,7 @@
             padding: 40px 20px;
         }
 
-        /* CREATIVE FREE GIVEAWAY BANNERS (Vertical) */
+        /* Creative Vertical "FREE GIVEAWAY" Banners */
         .side-banner {
             position: absolute;
             top: 0;
@@ -50,45 +50,47 @@
             justify-content: center;
             z-index: 10;
         }
-        .left-banner { left: 0; }
-        .right-banner { right: 0; }
+        .left-banner { left: 5px; }
+        .right-banner { right: 5px; }
 
         .vertical-text {
             writing-mode: vertical-rl;
             text-orientation: mixed;
             transform: rotate(180deg);
             color: #fff;
-            font-size: 1.2rem;
-            letter-spacing: 4px;
+            font-size: 1rem;
+            letter-spacing: 5px;
             font-weight: 700;
             text-transform: uppercase;
-            border: 2px solid rgba(255,255,255,0.3);
-            padding: 20px 5px;
-            border-radius: 10px;
-            animation: glow 2s infinite alternate;
+            /* Cool glowing border effect */
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 40px 10px;
+            border-radius: 50px;
         }
         
         .right-banner .vertical-text { transform: none; }
 
         .hero-sub {
             color: #ff6600;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .hero-title {
-            font-size: 3rem;
+            font-size: 3.5rem; /* Big Apple-style header */
             font-weight: 700;
-            line-height: 1.1;
+            line-height: 1.05;
             margin-bottom: 30px;
         }
 
         /* Hero Image Container */
         .hero-image-container {
             width: 100%;
-            max-width: 800px;
-            margin: 20px 0;
+            max-width: 900px; /* Wide enough for the 3 phones */
+            margin: 10px 0;
         }
         .hero-image-container img {
             width: 100%;
@@ -98,8 +100,8 @@
 
         .hero-footer {
             margin-top: 30px;
-            font-size: 1.2rem;
-            color: #ccc;
+            font-size: 1.4rem;
+            color: #e0e0e0;
             max-width: 600px;
             line-height: 1.4;
         }
@@ -116,60 +118,66 @@
 
         .info-col {
             flex: 1;
-            padding: 50px;
-            min-width: 320px;
-            background: #f9f9f9;
+            padding: 60px;
+            min-width: 350px;
+            background: #fbfbfd; /* Apple's light grey background */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .info-title {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 800;
             line-height: 1;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             text-transform: uppercase;
+            letter-spacing: -1px;
         }
 
         .product-image-container {
             width: 100%;
-            margin: 30px 0;
+            margin-bottom: 40px;
         }
         .product-image-container img {
             width: 100%;
-            border-radius: 10px;
+            border-radius: 20px;
         }
 
         /* The 6 Lines of Text */
         .info-details {
-            font-size: 1rem;
-            color: #333;
-            line-height: 1.6;
+            font-size: 1.1rem;
+            color: #1d1d1f;
+            line-height: 1.5;
         }
         .info-details p { margin-bottom: 15px; }
         .disclaimer {
-            font-size: 0.8rem;
-            color: #777;
+            font-size: 0.9rem;
+            color: #86868b;
             font-style: italic;
-            margin-top: 30px;
+            margin-top: 40px;
         }
 
         /* RIGHT COLUMN: FORM */
         .form-col {
             flex: 1;
-            padding: 50px;
-            min-width: 320px;
+            padding: 60px;
+            min-width: 350px;
+            background: #fff;
         }
 
         .form-header {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 800;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             text-transform: uppercase;
-            line-height: 1;
+            line-height: 0.95;
+            letter-spacing: -1px;
         }
 
         .family-member-block {
             margin-bottom: 30px;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #d2d2d7;
             padding-bottom: 20px;
         }
 
@@ -177,48 +185,48 @@
             display: flex;
             align-items: center;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             margin-bottom: 15px;
-            color: #000;
+            color: #1d1d1f;
         }
 
-        .arrow-icon { color: #ff6600; margin-right: 10px; font-weight: bold; }
+        .arrow-icon { color: #ff6600; margin-right: 12px; font-weight: 900; font-size: 1.3rem; }
 
         input {
             width: 100%;
-            padding: 15px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 1rem;
+            padding: 18px;
+            margin-bottom: 12px;
+            border: 1px solid #d2d2d7;
+            border-radius: 12px;
+            font-size: 1.1rem;
             background: #fff;
+            color: #1d1d1f;
         }
+        input::placeholder { color: #86868b; }
 
         .submit-btn {
             width: 100%;
-            padding: 18px;
-            background-color: #111;
+            padding: 20px;
+            background-color: #1d1d1f;
             color: #fff;
-            font-size: 1.2rem;
-            font-weight: bold;
+            font-size: 1.3rem;
+            font-weight: 600;
             border: none;
-            border-radius: 8px;
+            border-radius: 14px;
             cursor: pointer;
             text-transform: uppercase;
-            margin-top: 20px;
+            margin-top: 30px;
+            transition: transform 0.2s;
         }
-        .submit-btn:hover { background-color: #333; }
-
-        @keyframes glow {
-            from { text-shadow: 0 0 5px #fff, 0 0 10px #ff6600; }
-            to { text-shadow: 0 0 10px #fff, 0 0 20px #ff6600; }
-        }
+        .submit-btn:hover { background-color: #000; transform: scale(1.01); }
 
         @media (max-width: 768px) {
-            .side-banner { display: none; } /* Hide side text on mobile */
+            .side-banner { display: none; } /* Hide banners on mobile */
             .giveaway-section { flex-direction: column; }
-            .hero-title { font-size: 2rem; }
+            .hero-title { font-size: 2.2rem; }
             .info-col, .form-col { padding: 30px 20px; }
+            .form-header { font-size: 2.2rem; }
+            .info-title { font-size: 2rem; }
         }
     </style>
 </head>
@@ -258,11 +266,12 @@
 
             <div class="info-details">
                 <p>Heat-forged aluminum unibody design for exceptional pro capability.</p>
-                <p><strong>Free 3 iPhone 17 Pro Max Giveaway.</strong></p>
-                <p>One lucky family would be gifted 3 IPHONE'S to win 3 IPHONE'S.</p>
-                <p>Submit the necessary details and get a chance to win 3 IPHONE'S.</p>
-                <p>Winners will be contacted through the details provided.</p>
-                <p>Winner selected via lucky draw. Stay tuned!</p>
+                <p><strong>Free 3 iPhone 17 Pro Max Giveaway.</strong><br>
+                One lucky family would be gifted 3 IPHONE's to win 3 IPHONE's.</p>
+                
+                <p>Submit the necessary details and get a chance to win 3 IPHONE's.<br>
+                Winners will be contacted through the details provided.<br>
+                Winner selected via lucky draw. Stay tuned!</p>
                 
                 <div class="disclaimer">No purchase necessary. Terms & Conditions apply.</div>
             </div>
@@ -313,4 +322,5 @@
 
 </body>
 </html>
+
 
