@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Special Wish For You</title>
-    
+    <title>iPhone 17 Pro Max Giveaway</title>
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7RKR9Z0V3H"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -13,135 +13,303 @@
 
       gtag('config', 'G-7RKR9Z0V3H');
     </script>
+
     <style>
+        /* RESET & FONTS */
         body {
-            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
-            font-family: 'Arial', sans-serif;
-            text-align: center;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            overflow-x: hidden;
+        }
+        * { box-sizing: border-box; }
+
+        /* --- SECTION 1: THE DARK HERO (00:00 - 00:05) --- */
+        .hero-section {
+            background-color: #000;
+            color: #fff;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-        }
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            max-width: 400px;
-            width: 100%;
-            animation: popIn 0.5s ease;
-        }
-        h1 { color: #ff3f34; font-size: 2.5rem; margin-bottom: 10px; }
-        h2 { color: #333; margin-top: 0; }
-        .wish-text { font-size: 1.2rem; line-height: 1.6; color: #555; }
-        
-        .input-container {
-            margin-top: 30px;
-            border-top: 2px dashed #eee;
-            padding-top: 20px;
-        }
-        input[type="text"] {
-            width: 80%;
-            padding: 10px;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-            margin-bottom: 10px;
             text-align: center;
+            position: relative;
+            padding: 20px;
         }
-        button {
-            background-color: #25D366; /* WhatsApp Green */
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            font-size: 16px;
-            border-radius: 25px;
-            cursor: pointer;
+
+        .hero-sub {
+            color: #ff6600; /* Orange accent */
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+
+        /* The 3 Phones Container */
+        .phones-display {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .phone-placeholder {
+            width: 30%;
+            aspect-ratio: 9/19;
+            background: #333;
+            border-radius: 20px;
+            border: 2px solid #555;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        /* Vertical Side Text */
+        .side-text {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            color: #fff;
+            border-left: 1px solid #333;
+            border-right: 1px solid #333;
+            padding: 10px 5px;
+        }
+        .left-side { left: 10px; transform: translateY(-50%) rotate(180deg); }
+        .right-side { right: 10px; }
+
+        .hero-footer {
+            margin-top: 30px;
+            font-size: 1.1rem;
+            color: #ccc;
+            max-width: 500px;
+        }
+        .orange-text { color: #ff6600; font-weight: bold; }
+
+        /* --- SECTION 2: THE FORM (00:06 - 00:10) --- */
+        .giveaway-section {
+            background-color: #fff;
+            color: #000;
+            display: flex;
+            flex-wrap: wrap;
+            min-height: 100vh;
+        }
+
+        /* Left Side: Product Info */
+        .info-col {
+            flex: 1;
+            padding: 40px;
+            min-width: 300px;
+            background: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .info-title {
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .product-image-placeholder {
+            width: 100%;
+            height: 200px;
+            background: #ddd;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
             font-weight: bold;
         }
-        button:hover { background-color: #128C7E; }
 
-        @keyframes popIn {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
+        .info-details {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* Right Side: The Input Form */
+        .form-col {
+            flex: 1;
+            padding: 40px;
+            min-width: 300px;
+        }
+
+        .form-header {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        .family-member-block {
+            margin-bottom: 25px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .member-label {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .arrow-icon {
+            color: #ff6600;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            background: #fff;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #000;
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+        .submit-btn:hover { background-color: #333; }
+
+        /* Responsive Fix */
+        @media (max-width: 768px) {
+            .side-text { display: none; } /* Hide side text on mobile */
+            .giveaway-section { flex-direction: column; }
         }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <h2 id="greeting">Waiting for name...</h2>
-        
-        <h1>Happy New Year!</h1>
-        <p class="wish-text">
-            May this year bring you endless joy, success, and prosperity. 
-            <br>✨ 2025 ✨
-        </p>
+    <div class="hero-section">
+        <div class="side-text left-side">FREE IPHONE GIVEAWAY</div>
+        <div class="side-text right-side">FREE IPHONE GIVEAWAY</div>
 
-        <div class="input-container">
-            <p>Create your own magic link:</p>
-            
-            <input type="text" id="nameInput" name="name" placeholder="Enter your Name here">
-            <br>
-            <button onclick="createLink()">Create & Share 🚀</button>
+        <div class="hero-sub">All in the family</div>
+        <div class="hero-title">All the must-haves.<br>All on iPhone.</div>
+
+        <div class="phones-display">
+            <div class="phone-placeholder">Conference App</div>
+            <div class="phone-placeholder">Dog Wallpaper</div>
+            <div class="phone-placeholder">Crash Detection</div>
         </div>
+
+        <div class="hero-footer">
+            One lucky home. One incredible phone. Infinite memories.<br>
+            <span class="orange-text">Surprise your loved ones with one.</span>
+        </div>
+    </div>
+
+    <div class="giveaway-section">
         
-        <p id="shareArea" style="display:none; margin-top:15px; font-size: 0.9rem; background:#f9f9f9; padding:10px; border-radius:5px; word-break: break-all;"></p>
+        <div class="info-col">
+            <div class="info-title">
+                Treat your family to the iPhone 17 Pro Max Experience.
+            </div>
+            
+            <div class="product-image-placeholder">
+                [Image: 3 iPhones Silver/Gold/Blue]
+            </div>
+
+            <p class="info-details">
+                Heat-forged aluminum unibody design for exceptional pro capability.
+                <br><br>
+                <strong>Free 3 iPhone 17 Pro Max Giveaway.</strong>
+                <br>
+                One lucky family would be gifted 3 IPHONE's to win 3 IPHONE's.
+                <br><br>
+                <em>No purchase necessary. Terms & Conditions apply.</em>
+            </p>
+        </div>
+
+        <div class="form-col">
+            <div class="form-header">
+                Drop your name, cross your fingers, and that's it!
+            </div>
+
+            <form id="giveawayForm" onsubmit="handleForm(event)">
+                
+                <div class="family-member-block">
+                    <div class="member-label"><span class="arrow-icon">➔</span> Family Member No - 1</div>
+                    <input type="text" name="member1_name" placeholder="Full Name" required>
+                    <input type="tel" name="member1_mobile" placeholder="Mobile Number" required>
+                </div>
+
+                <div class="family-member-block">
+                    <div class="member-label"><span class="arrow-icon">➔</span> Family Member No - 2</div>
+                    <input type="text" name="member2_name" placeholder="Full Name">
+                    <input type="tel" name="member2_mobile" placeholder="Mobile Number">
+                </div>
+
+                <div class="family-member-block">
+                    <div class="member-label"><span class="arrow-icon">➔</span> Family Member No - 3</div>
+                    <input type="text" name="member3_name" placeholder="Full Name">
+                    <input type="tel" name="member3_mobile" placeholder="Mobile Number">
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Entry</button>
+            </form>
+        </div>
     </div>
 
     <script>
-        // 1. Get the URL parameters to show the greeting
-        const urlParams = new URLSearchParams(window.location.search);
-        const nameFromUrl = urlParams.get('name');
+        function handleForm(event) {
+            event.preventDefault(); // Stop page from reloading
 
-        if (nameFromUrl) {
-            document.getElementById('greeting').innerHTML = "⚡ " + nameFromUrl + " ⚡<br>Wishes You";
-            document.title = nameFromUrl + " sent you a wish!";
+            // Get the main name
+            const name1 = document.querySelector('input[name="member1_name"]').value;
+
+            // TRACKING: Send data to Google Analytics
+            // This allows you to see who submitted in your GA Reports
+            gtag('event', 'form_submit', { 
+                'lead_name': name1 
+            });
+
+            // Since we don't have a backend database, show a success alert
+            alert("Thanks " + name1 + "! Your family entry has been received. Good luck!");
             
-            // Track that someone viewed a wish (Optional, extra tracking)
-            gtag('event', 'view_wish', { 'viewed_name': nameFromUrl });
-            
-        } else {
-            document.getElementById('greeting').innerText = "Welcome!";
-        }
-
-        // 2. Function to generate the new link
-        function createLink() {
-            const nameValue = document.getElementById('nameInput').value.trim();
-            
-            if(!nameValue) {
-                alert("Please enter your name first!");
-                return;
-            }
-
-            // --- GOOGLE ANALYTICS TRACKING ---
-            // This sends the name they typed to your Google Analytics dashboard
-            gtag('event', 'create_wish', { 'user_name': nameValue });
-            // ---------------------------------
-
-            // Create the new URL
-            const baseUrl = window.location.origin + window.location.pathname;
-            const newUrl = baseUrl + "?name=" + encodeURIComponent(nameValue);
-
-            // Show the share link
-            const shareArea = document.getElementById('shareArea');
-            shareArea.style.display = 'block';
-            shareArea.innerHTML = `
-                <strong>Copy this link:</strong><br>
-                <a href="${newUrl}">${newUrl}</a>
-                <br><br>
-                <a href="whatsapp://send?text=*${nameValue}* has sent you a special surprise! Open this: ${newUrl}" style="color:#25D366; font-weight:bold; text-decoration:none;">
-                    Click here to Share on WhatsApp
-                </a>
-            `;
+            // Optional: Clear the form
+            document.getElementById('giveawayForm').reset();
         }
     </script>
+
 </body>
 </html>
-</body>
 
 </html>
+
