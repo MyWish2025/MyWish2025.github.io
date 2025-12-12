@@ -39,33 +39,33 @@
             padding: 40px 20px;
         }
 
-        /* Creative Vertical "FREE GIVEAWAY" Banners */
+        /* CREATIVE VERTICAL BANNERS */
         .side-banner {
             position: absolute;
             top: 0;
             bottom: 0;
-            width: 50px;
+            width: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 10;
         }
-        .left-banner { left: 5px; }
-        .right-banner { right: 5px; }
+        .left-banner { left: 0; }
+        .right-banner { right: 0; }
 
         .vertical-text {
             writing-mode: vertical-rl;
             text-orientation: mixed;
             transform: rotate(180deg);
             color: #fff;
-            font-size: 1rem;
+            font-size: 1.1rem;
             letter-spacing: 5px;
             font-weight: 700;
             text-transform: uppercase;
-            /* Cool glowing border effect */
-            border: 1px solid rgba(255,255,255,0.2);
-            padding: 40px 10px;
-            border-radius: 50px;
+            border-top: 2px solid #333;
+            border-bottom: 2px solid #333;
+            padding: 40px 0;
+            animation: pulseGlow 3s infinite alternate;
         }
         
         .right-banner .vertical-text { transform: none; }
@@ -74,23 +74,24 @@
             color: #ff6600;
             font-size: 0.9rem;
             font-weight: 600;
-            margin-bottom: 20px;
-            text-transform: uppercase;
             letter-spacing: 1px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
         }
 
         .hero-title {
-            font-size: 3.5rem; /* Big Apple-style header */
+            font-size: 3.5rem;
             font-weight: 700;
             line-height: 1.05;
             margin-bottom: 30px;
+            letter-spacing: -1px;
         }
 
         /* Hero Image Container */
         .hero-image-container {
             width: 100%;
-            max-width: 900px; /* Wide enough for the 3 phones */
-            margin: 10px 0;
+            max-width: 900px;
+            margin: 20px 0;
         }
         .hero-image-container img {
             width: 100%;
@@ -99,13 +100,14 @@
         }
 
         .hero-footer {
-            margin-top: 30px;
+            margin-top: 40px;
             font-size: 1.4rem;
-            color: #e0e0e0;
-            max-width: 600px;
+            color: #f5f5f7;
+            max-width: 700px;
             line-height: 1.4;
+            font-weight: 500;
         }
-        .orange-text { color: #ff6600; font-weight: bold; }
+        .orange-text { color: #ff6600; font-weight: 700; }
 
         /* --- SECTION 2: THE FORM --- */
         .giveaway-section {
@@ -120,16 +122,13 @@
             flex: 1;
             padding: 60px;
             min-width: 350px;
-            background: #fbfbfd; /* Apple's light grey background */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            background: #fff;
         }
 
         .info-title {
             font-size: 2.8rem;
             font-weight: 800;
-            line-height: 1;
+            line-height: 0.95;
             margin-bottom: 30px;
             text-transform: uppercase;
             letter-spacing: -1px;
@@ -137,11 +136,12 @@
 
         .product-image-container {
             width: 100%;
-            margin-bottom: 40px;
+            margin: 30px 0;
         }
         .product-image-container img {
             width: 100%;
-            border-radius: 20px;
+            height: auto;
+            display: block;
         }
 
         /* The 6 Lines of Text */
@@ -149,13 +149,18 @@
             font-size: 1.1rem;
             color: #1d1d1f;
             line-height: 1.5;
+            margin-top: 20px;
         }
-        .info-details p { margin-bottom: 15px; }
+        .info-details p { margin-bottom: 12px; }
+        
+        .highlight-bold { font-weight: 700; color: #000; }
+        
         .disclaimer {
-            font-size: 0.9rem;
-            color: #86868b;
+            font-size: 0.85rem;
+            color: #6e6e73;
             font-style: italic;
             margin-top: 40px;
+            display: block;
         }
 
         /* RIGHT COLUMN: FORM */
@@ -164,69 +169,71 @@
             padding: 60px;
             min-width: 350px;
             background: #fff;
+            border-left: 1px solid #f0f0f0;
         }
 
         .form-header {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 800;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             text-transform: uppercase;
-            line-height: 0.95;
-            letter-spacing: -1px;
+            line-height: 1;
         }
 
         .family-member-block {
             margin-bottom: 30px;
-            border-bottom: 1px solid #d2d2d7;
-            padding-bottom: 20px;
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 25px;
         }
 
         .member-label {
             display: flex;
             align-items: center;
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 15px;
-            color: #1d1d1f;
+            color: #000;
         }
 
-        .arrow-icon { color: #ff6600; margin-right: 12px; font-weight: 900; font-size: 1.3rem; }
+        .arrow-icon { color: #ff6600; margin-right: 12px; font-weight: 900; font-size: 1.2rem; }
 
         input {
             width: 100%;
-            padding: 18px;
-            margin-bottom: 12px;
+            padding: 16px;
+            margin-bottom: 15px;
             border: 1px solid #d2d2d7;
-            border-radius: 12px;
+            border-radius: 8px;
             font-size: 1.1rem;
             background: #fff;
             color: #1d1d1f;
         }
-        input::placeholder { color: #86868b; }
 
         .submit-btn {
             width: 100%;
             padding: 20px;
             background-color: #1d1d1f;
             color: #fff;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 600;
             border: none;
-            border-radius: 14px;
+            border-radius: 12px;
             cursor: pointer;
             text-transform: uppercase;
-            margin-top: 30px;
-            transition: transform 0.2s;
+            margin-top: 20px;
+            letter-spacing: 1px;
         }
-        .submit-btn:hover { background-color: #000; transform: scale(1.01); }
+        .submit-btn:hover { background-color: #000; }
+
+        @keyframes pulseGlow {
+            0% { text-shadow: 0 0 5px rgba(255,255,255,0.1); }
+            100% { text-shadow: 0 0 15px rgba(255,255,255,0.8); }
+        }
 
         @media (max-width: 768px) {
             .side-banner { display: none; } /* Hide banners on mobile */
             .giveaway-section { flex-direction: column; }
-            .hero-title { font-size: 2.2rem; }
-            .info-col, .form-col { padding: 30px 20px; }
-            .form-header { font-size: 2.2rem; }
-            .info-title { font-size: 2rem; }
+            .hero-title { font-size: 2.5rem; }
+            .info-col, .form-col { padding: 30px 20px; border: none;}
         }
     </style>
 </head>
@@ -234,17 +241,17 @@
 
     <div class="hero-section">
         <div class="side-banner left-banner">
-            <div class="vertical-text">FREE IPHONE GIVEAWAY</div>
+            <div class="vertical-text">❖ FREE IPHONE GIVEAWAY ❖</div>
         </div>
         <div class="side-banner right-banner">
-            <div class="vertical-text">FREE IPHONE GIVEAWAY</div>
+            <div class="vertical-text">❖ FREE IPHONE GIVEAWAY ❖</div>
         </div>
 
         <div class="hero-sub">All in the family</div>
         <div class="hero-title">All the must-haves.<br>All on iPhone.</div>
 
         <div class="hero-image-container">
-            <img src="hero.jpg" alt="iPhone Screens">
+            <img src="hero.jpeg" alt="iPhone Screens">
         </div>
 
         <div class="hero-footer">
@@ -261,19 +268,17 @@
             </div>
             
             <div class="product-image-container">
-                <img src="form.jpg" alt="iPhone 17 Pro Max Colors">
+                <img src="form.jpeg" alt="iPhone 17 Pro Max Colors">
             </div>
 
             <div class="info-details">
                 <p>Heat-forged aluminum unibody design for exceptional pro capability.</p>
-                <p><strong>Free 3 iPhone 17 Pro Max Giveaway.</strong><br>
-                One lucky family would be gifted 3 IPHONE's to win 3 IPHONE's.</p>
-                
-                <p>Submit the necessary details and get a chance to win 3 IPHONE's.<br>
-                Winners will be contacted through the details provided.<br>
-                Winner selected via lucky draw. Stay tuned!</p>
-                
-                <div class="disclaimer">No purchase necessary. Terms & Conditions apply.</div>
+                <p class="highlight-bold">Free 3 iPhone 17 Pro Max Giveaway.</p>
+                <p>One lucky family would be gifted 3 IPHONE'S to win 3 IPHONE'S.</p>
+                <p>Submit the necessary details and get a chance to win 3 IPHONE's.</p>
+                <p>Winners will be contacted through the details provided.</p>
+                <p>Winner selected via lucky draw. Stay tuned!</p>
+                <span class="disclaimer">No purchase necessary. Terms & Conditions apply.</span>
             </div>
         </div>
 
