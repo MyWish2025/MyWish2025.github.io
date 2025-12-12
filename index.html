@@ -19,7 +19,7 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
             overflow-x: hidden;
             background-color: #000;
         }
@@ -36,77 +36,76 @@
             justify-content: center;
             text-align: center;
             position: relative;
-            padding: 20px;
+            padding: 40px 20px; /* Added more space top/bottom */
         }
+
+        /* Creative Vertical "FREE GIVEAWAY" Banners */
+        .side-banner {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .left-banner { left: 10px; }
+        .right-banner { right: 10px; }
+
+        .vertical-text {
+            white-space: nowrap;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-size: 1rem;
+            letter-spacing: 4px;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+            animation: pulseText 2s infinite;
+        }
+        .left-banner .vertical-text { transform: rotate(180deg); }
 
         .hero-sub {
             color: #ff6600;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            margin-top: 40px; /* Extra space above */
         }
 
         .hero-title {
-            font-size: 2.5rem;
+            font-size: clamp(2.5rem, 5vw, 4rem); /* Responsive big font */
             font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 30px;
+            line-height: 1.05;
+            margin-bottom: 40px;
+            letter-spacing: -1px;
         }
 
-        /* The 3 Phones Container */
-        .phones-display {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
+        /* The Hero Image (3 Phones) */
+        .hero-image-container {
+            width: 100%;
+            max-width: 900px;
             margin: 20px 0;
-            width: 100%;
-            max-width: 800px;
         }
-
-        /* Phone Styling to look like devices */
-        .phone-frame {
-            width: 30%;
-            aspect-ratio: 9/19;
-            background: #000;
-            border-radius: 20px;
-            border: 4px solid #333; /* The bezel */
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-        }
-
-        .phone-frame img {
+        .hero-image-container img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
             display: block;
         }
 
-        /* Vertical Side Text */
-        .side-text {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            color: #fff;
-            border-left: 1px solid #333;
-            border-right: 1px solid #333;
-            padding: 10px 5px;
-        }
-        .left-side { left: 10px; transform: translateY(-50%) rotate(180deg); }
-        .right-side { right: 10px; }
-
         .hero-footer {
-            margin-top: 30px;
-            font-size: 1.1rem;
-            color: #ccc;
-            max-width: 500px;
+            margin-top: 40px;
+            font-size: 1.3rem;
+            color: #f5f5f7;
+            max-width: 600px;
+            line-height: 1.4;
+            margin-bottom: 40px; /* Space at bottom */
         }
-        .orange-text { color: #ff6600; font-weight: bold; }
+        .orange-text { color: #ff6600; font-weight: 700; }
 
         /* --- SECTION 2: THE FORM --- */
         .giveaway-section {
@@ -119,122 +118,139 @@
 
         .info-col {
             flex: 1;
-            padding: 40px;
-            min-width: 300px;
-            background: #f9f9f9;
+            padding: 50px;
+            min-width: 320px;
+            background: #fbfbfd;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
         }
 
         .info-title {
-            font-size: 2rem;
-            font-weight: 800;
+            font-size: 2.2rem;
+            font-weight: 700;
             line-height: 1.1;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             text-transform: uppercase;
+            letter-spacing: -0.5px;
         }
 
         .product-image-container {
             width: 100%;
-            margin: 20px 0;
-            display: flex;
-            justify-content: center;
+            margin-bottom: 30px;
         }
-        
         .product-image-container img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            display: block;
         }
 
+        /* The 6 Lines of Text */
         .info-details {
-            font-size: 0.9rem;
-            color: #555;
-            line-height: 1.5;
+            font-size: 1rem;
+            color: #1d1d1f;
+            line-height: 1.6;
+        }
+        .info-details strong { font-weight: 700; display: block; margin-top: 10px; }
+        .disclaimer {
+            margin-top: 20px;
+            font-size: 0.85rem;
+            font-style: italic;
+            color: #666;
+            display: block;
         }
 
         .form-col {
             flex: 1;
-            padding: 40px;
-            min-width: 300px;
+            padding: 50px;
+            min-width: 320px;
+            background: #fff;
         }
 
         .form-header {
-            font-size: 1.8rem;
+            font-size: 2.5rem; /* Bigger form header */
             font-weight: 700;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             text-transform: uppercase;
-            line-height: 1.2;
+            line-height: 1;
+            letter-spacing: -1px;
         }
 
         .family-member-block {
-            margin-bottom: 25px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 20px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #d2d2d7;
+            padding-bottom: 25px;
         }
 
         .member-label {
             display: flex;
             align-items: center;
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #000;
         }
 
-        .arrow-icon { color: #ff6600; margin-right: 10px; font-size: 1.2rem; }
+        .arrow-icon { color: #ff6600; margin-right: 12px; font-size: 1.3rem; font-weight: 900; }
 
         input {
             width: 100%;
-            padding: 12px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
+            padding: 16px;
+            margin-bottom: 12px;
+            border: 1px solid #d2d2d7;
+            border-radius: 12px; /* Rounded corners like iOS */
+            font-size: 1.1rem;
             background: #fff;
+            color: #1d1d1f;
         }
+        input::placeholder { color: #86868b; }
 
         .submit-btn {
             width: 100%;
-            padding: 15px;
-            background-color: #000;
+            padding: 18px;
+            background-color: #1d1d1f;
             color: #fff;
             font-size: 1.2rem;
-            font-weight: bold;
+            font-weight: 600;
             border: none;
-            border-radius: 8px;
+            border-radius: 14px;
             cursor: pointer;
             text-transform: uppercase;
-            margin-top: 10px;
+            margin-top: 20px;
+            transition: background 0.3s;
         }
-        .submit-btn:hover { background-color: #333; }
+        .submit-btn:hover { background-color: #000; transform: scale(1.01); }
+
+        @keyframes pulseText {
+            0% { opacity: 0.7; }
+            50% { opacity: 1; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
+            100% { opacity: 0.7; }
+        }
 
         @media (max-width: 768px) {
-            .side-text { display: none; }
+            .side-banner { display: none; } /* Hide side text on mobile */
             .giveaway-section { flex-direction: column; }
-            .phones-display { gap: 5px; }
+            .hero-section { padding: 20px; }
+            .hero-title { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
     <div class="hero-section">
-        <div class="side-text left-side">FREE IPHONE GIVEAWAY</div>
-        <div class="side-text right-side">FREE IPHONE GIVEAWAY</div>
+        <div class="side-banner left-banner">
+            <div class="vertical-text">FREE IPHONE GIVEAWAY</div>
+        </div>
+        <div class="side-banner right-banner">
+            <div class="vertical-text">FREE IPHONE GIVEAWAY</div>
+        </div>
 
         <div class="hero-sub">All in the family</div>
         <div class="hero-title">All the must-haves.<br>All on iPhone.</div>
 
-        <div class="phones-display">
-            <div class="phone-frame">
-                <img src="http://googleusercontent.com/image_collection/image_retrieval/3503718359197871293_0" alt="App">
-            </div>
-            <div class="phone-frame">
-                <img src="http://googleusercontent.com/image_collection/image_retrieval/8462516068257919083_0" alt="Dog">
-            </div>
-            <div class="phone-frame">
-                <img src="http://googleusercontent.com/image_collection/image_retrieval/5412500120761944684_0" alt="Crash">
-            </div>
+        <div class="hero-image-container">
+            <img src="hero_image.jpg" alt="iPhone Screens">
         </div>
 
         <div class="hero-footer">
@@ -251,17 +267,22 @@
             </div>
             
             <div class="product-image-container">
-                <img src="http://googleusercontent.com/image_collection/image_retrieval/5219039293879231214_0" alt="iPhone 17 Pro Max">
+                 <img src="form_image.jpg" alt="iPhone 17 Pro Max Colors">
             </div>
 
             <p class="info-details">
                 Heat-forged aluminum unibody design for exceptional pro capability.
                 <br><br>
                 <strong>Free 3 iPhone 17 Pro Max Giveaway.</strong>
-                <br>
                 One lucky family would be gifted 3 IPHONE's to win 3 IPHONE's.
                 <br><br>
-                <em>No purchase necessary. Terms & Conditions apply.</em>
+                Submit the necessary details and get a chance to win 3 IPHONE's.
+                <br>
+                Winners will be contacted through the details provided.
+                <br>
+                Winner selected via lucky draw. Stay tuned!
+                <br>
+                <span class="disclaimer">No purchase necessary. Terms & Conditions apply.</span>
             </p>
         </div>
 
@@ -290,18 +311,21 @@
                     <input type="tel" name="member3_mobile" placeholder="Mobile Number">
                 </div>
 
-                <button type="submit" class="submit-btn">Submit Entry</button>
+                <button type="submit" class="submit-btn">Submit</button>
             </form>
         </div>
     </div>
 
     <script>
         function handleForm(event) {
-            event.preventDefault();
+            event.preventDefault(); // Stop page from reloading
+
             const name1 = document.querySelector('input[name="member1_name"]').value;
 
-            // Tracking
-            gtag('event', 'form_submit', { 'lead_name': name1 });
+            // TRACKING: Send data to Google Analytics
+            gtag('event', 'form_submit', { 
+                'lead_name': name1 
+            });
 
             alert("Thanks " + name1 + "! Your family entry has been received. Good luck!");
             document.getElementById('giveawayForm').reset();
@@ -310,5 +334,4 @@
 
 </body>
 </html>
-
 
