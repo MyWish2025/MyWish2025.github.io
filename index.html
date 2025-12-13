@@ -16,14 +16,16 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
 
     <style>
-        /* RESET & GLOBAL */
+        /* SMOOTH SCROLLING IS KEY FOR THE "ENTER" BUTTON */
+        html { scroll-behavior: smooth; }
+
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             overflow-x: hidden;
             background-color: #000;
         }
@@ -40,61 +42,65 @@
             justify-content: center;
             text-align: center;
             position: relative;
-            padding: 20px;
+            padding: 20px 20px 60px 20px; /* Added bottom padding for button space */
         }
 
-        /* BANNER STYLES - DESKTOP (Vertical on sides) */
+        /* 1. NEW "FX" SIDE BANNERS (Glowing Neon Style) */
         .side-banner {
             position: absolute;
             top: 0;
             bottom: 0;
-            width: 50px;
+            width: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 10;
+            pointer-events: none; /* Confirms it's not a button */
         }
         .left-banner { left: 0; }
         .right-banner { right: 0; }
 
-        .banner-text {
+        .fx-text {
             writing-mode: vertical-rl;
             text-orientation: mixed;
             transform: rotate(180deg);
-            color: #fff;
-            font-size: 1rem;
-            letter-spacing: 3px;
-            font-weight: 600;
+            color: #fff; /* White Core */
+            font-size: 1.1rem;
+            letter-spacing: 6px;
+            font-weight: 800;
             text-transform: uppercase;
-            border: 1px solid rgba(255,255,255,0.3);
-            border-radius: 50px;
-            padding: 40px 8px;
-            background: rgba(255,255,255,0.05);
-            white-space: nowrap;
+            font-family: 'Space Grotesk', sans-serif;
+            /* The "FX" Glow Effect */
+            text-shadow: 
+                0 0 5px rgba(255, 102, 0, 0.8),
+                0 0 10px rgba(255, 102, 0, 0.6),
+                0 0 20px rgba(255, 102, 0, 0.4);
+            animation: neonPulse 2s infinite alternate;
         }
-        .right-banner .banner-text { transform: none; }
+        
+        .right-banner .fx-text { transform: none; }
 
         .hero-sub {
             color: #ff6600;
-            font-size: 0.9rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
             text-transform: uppercase;
         }
 
         .hero-title {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 800;
-            line-height: 1.05;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            font-weight: 800; /* Extra Bold */
+            line-height: 1;
+            margin-bottom: 25px;
+            letter-spacing: -1.5px;
         }
 
         .hero-image-container {
             width: 100%;
-            max-width: 600px;
-            margin: 10px 0;
+            max-width: 550px;
+            margin: 10px 0 30px 0;
         }
         .hero-image-container img {
             width: 100%;
@@ -102,48 +108,88 @@
             display: block;
         }
 
+        /* 2. FIXED TYPOGRAPHY (Tighter, Bolder, Matching Header) */
         .hero-footer {
-            margin-top: 20px;
-            font-size: 1.1rem;
-            color: #f5f5f7;
-            max-width: 600px;
-            line-height: 1.4;
-            opacity: 0.9;
+            font-size: 1.3rem; /* Larger */
+            font-weight: 700;  /* Bold like header */
+            color: #fff;
+            max-width: 650px;
+            line-height: 1.2;  /* Tighter spacing */
+            margin-bottom: 30px;
+            letter-spacing: -0.5px;
         }
-        .orange-text { color: #ff6600; font-weight: 700; }
+        .orange-text { 
+            color: #ff6600; 
+            display: block; /* Forces it to new line if needed */
+            margin-top: 5px;
+        }
 
-        /* --- SECTION 2: GIVEAWAY INFO (NOW BLACK) --- */
+        /* 3. NEW "ENTER" BUTTON (Bouncing) */
+        .enter-btn-container {
+            margin-top: 10px;
+        }
+
+        .enter-btn {
+            background-color: #fff;
+            color: #000;
+            font-size: 1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 14px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            animation: bounce 2s infinite;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .enter-btn:hover {
+            background-color: #ff6600;
+            color: #fff;
+            animation: none; /* Stop bounce on hover */
+            transform: scale(1.05);
+        }
+
+        /* ANIMATIONS */
+        @keyframes neonPulse {
+            from { opacity: 0.8; text-shadow: 0 0 10px #ff6600; }
+            to { opacity: 1; text-shadow: 0 0 25px #ff6600, 0 0 5px #fff; }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+
+        /* --- SECTION 2: GIVEAWAY (BLACK BG) --- */
         .giveaway-section {
             display: flex;
             flex-wrap: wrap;
             min-height: 100vh;
         }
 
-        /* LEFT COLUMN: INFO (Black background, White Text) */
         .info-col {
             flex: 1;
-            padding: 40px;
+            padding: 50px;
             min-width: 320px;
-            
-            /* UPDATED COLORS */
             background-color: #000; 
             color: #fff;
-            
-            /* UPDATED FONT */
             font-family: 'Space Grotesk', sans-serif; 
         }
 
         .info-title {
-            font-size: 2.2rem;
-            font-weight: 700; /* Bold/Wide look */
-            line-height: 1;
-            margin-bottom: 20px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 0.95;
+            margin-bottom: 25px;
             text-transform: uppercase;
         }
 
         .product-image-container {
             width: 100%;
-            margin: 20px 0;
+            margin: 30px 0;
         }
         .product-image-container img {
             width: 100%;
@@ -152,32 +198,29 @@
         }
 
         .info-details {
-            font-size: 1rem;
-            line-height: 1.5;
-            margin-top: 20px;
-            color: #ddd; /* Slightly off-white for better readability on black */
+            font-size: 1.1rem;
+            line-height: 1.4;
+            color: #ccc;
         }
         .info-details p { margin-bottom: 15px; }
-        
-        .highlight-bold { font-weight: 700; color: #fff; }
+        .highlight-bold { font-weight: 700; color: #fff; font-size: 1.2rem; }
         
         .disclaimer {
-            font-size: 0.8rem;
-            color: #888;
+            font-size: 0.75rem;
+            color: #666;
             font-style: italic;
-            margin-top: 30px;
+            margin-top: 40px;
             display: block;
         }
 
-        /* RIGHT COLUMN: FORM (REMAINS WHITE) */
+        /* FORM SECTION (WHITE BG) */
         .form-col {
             flex: 1;
-            padding: 40px;
+            padding: 50px;
             min-width: 320px;
             background: #fff;
             color: #000;
-            font-family: 'Inter', sans-serif; /* Keep form clean standard font */
-            border-left: 1px solid #f0f0f0;
+            font-family: 'Inter', sans-serif;
         }
 
         .form-header {
@@ -186,12 +229,12 @@
             margin-bottom: 30px;
             text-transform: uppercase;
             line-height: 1;
-            font-family: 'Space Grotesk', sans-serif; /* Match header font */
+            font-family: 'Space Grotesk', sans-serif;
         }
 
         .family-member-block {
             margin-bottom: 25px;
-            border-bottom: 1px solid #e5e5e5;
+            border-bottom: 1px solid #eee;
             padding-bottom: 20px;
         }
 
@@ -204,67 +247,61 @@
             color: #000;
         }
 
-        .arrow-icon { color: #ff6600; margin-right: 10px; font-weight: 900; font-size: 1.2rem; }
+        .arrow-icon { color: #ff6600; margin-right: 10px; font-weight: 900; }
 
         input {
             width: 100%;
-            padding: 14px;
+            padding: 16px;
             margin-bottom: 10px;
-            border: 1px solid #d2d2d7;
+            border: 1px solid #ccc;
             border-radius: 8px;
             font-size: 1rem;
             background: #fff;
-            color: #1d1d1f;
+            color: #000;
             font-family: 'Inter', sans-serif;
         }
 
         .submit-btn {
             width: 100%;
-            padding: 18px;
+            padding: 20px;
             background-color: #000;
             color: #fff;
-            font-size: 1rem;
-            font-weight: 600;
+            font-size: 1.1rem;
+            font-weight: 700;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
             text-transform: uppercase;
             margin-top: 20px;
             letter-spacing: 1px;
+            transition: background 0.3s;
         }
         .submit-btn:hover { background-color: #333; }
 
-        /* --- MOBILE ADJUSTMENTS --- */
+        /* MOBILE ADJUSTMENTS */
         @media (max-width: 768px) {
-            
-            /* Fix the Banner for Mobile - Move to Top Horizontal */
             .side-banner {
                 position: relative;
-                top: auto;
-                bottom: auto;
-                left: auto;
-                right: auto;
+                top: auto; bottom: auto; left: auto; right: auto;
                 width: 100%;
-                height: auto;
-                margin-bottom: 20px;
+                margin-bottom: 10px;
                 display: block;
+                height: auto;
             }
+            .right-banner { display: none; }
             
-            .right-banner { display: none; } /* Hide duplicate on mobile */
-            
-            .banner-text {
-                writing-mode: horizontal-tb; /* Make text horizontal */
+            .fx-text {
+                writing-mode: horizontal-tb;
                 transform: none;
                 width: 100%;
                 text-align: center;
-                border: 1px solid #ff6600; /* Orange border to pop on mobile */
-                color: #ff6600;
+                font-size: 1rem;
+                padding: 10px 0;
             }
 
+            .hero-section { padding: 40px 20px; }
             .giveaway-section { flex-direction: column; }
-            .info-col, .form-col { padding: 30px 20px; border: none;}
-            
-            /* Order: Ensure Form is last (default behavior of flex col) */
+            .info-col, .form-col { padding: 40px 25px; border: none; }
         }
     </style>
 </head>
@@ -273,11 +310,10 @@
     <div class="hero-section">
         
         <div class="side-banner left-banner">
-            <div class="banner-text">FREE IPHONE GIVEAWAY</div>
+            <div class="fx-text">✨ 3 IPHONES GIVEAWAY ✨</div>
         </div>
-        
         <div class="side-banner right-banner">
-            <div class="banner-text">FREE IPHONE GIVEAWAY</div>
+            <div class="fx-text">✨ 3 IPHONES GIVEAWAY ✨</div>
         </div>
 
         <div class="hero-sub">All in the family</div>
@@ -288,14 +324,16 @@
         </div>
 
         <div class="hero-footer">
-            <p>One lucky home.</p>
-            <p>One incredible phone.</p>
-            <p>Infinite memories.</p><br>
+            One lucky home. One incredible phone. Infinite memories.
             <span class="orange-text">Surprise your loved ones with one.</span>
+        </div>
+
+        <div class="enter-btn-container">
+            <a href="#form-section" class="enter-btn">Enter Now ↓</a>
         </div>
     </div>
 
-    <div class="giveaway-section">
+    <div id="form-section" class="giveaway-section">
         
         <div class="info-col">
             <div class="info-title">
@@ -307,6 +345,7 @@
             </div>
 
             <div class="info-details">
+                <p>Heat-forged aluminum unibody design for exceptional pro capability.</p>
                 <p class="highlight-bold">Free 3 iPhone 17 Pro Max Giveaway.</p>
                 <p>One lucky family would be gifted 3 IPHONE's to win 3 IPHONE's.</p>
                 <p>Submit the necessary details and get a chance to win 3 IPHONE's.</p>
@@ -361,6 +400,5 @@
 
 </body>
 </html>
-
 
 
