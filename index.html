@@ -30,7 +30,7 @@
         }
         * { box-sizing: border-box; }
 
-        /* --- SECTION 1: HERO --- */
+        /* --- HERO SECTION --- */
         .hero-section {
             background-color: #000;
             color: #fff;
@@ -41,14 +41,12 @@
             justify-content: center;
             text-align: center;
             position: relative;
-            /* Reduced padding to remove empty space */
             padding: 80px 20px 20px 20px; 
         }
 
         /* BANNER STYLES */
         .side-banner {
-            position: absolute;
-            top: 0; bottom: 0; width: 80px;
+            position: absolute; top: 0; bottom: 0; width: 80px;
             display: flex; align-items: center; justify-content: center;
             z-index: 100;
             background: rgba(255, 69, 0, 0.1);
@@ -88,20 +86,16 @@
 
         .hero-image-container {
             width: 100%; max-width: 550px;
-            /* Reduced margins to tighten space */
             margin: 10px 0 15px 0; 
         }
         .hero-image-container img { width: 100%; height: auto; display: block; }
 
-        /* FIXED FOOTER TEXT - 3 LINES */
         .hero-footer {
             font-size: 1.4rem; font-weight: 700; color: #fff;
             max-width: 650px; line-height: 1.3;
             margin-bottom: 20px; letter-spacing: -0.5px;
         }
-        /* Forces each sentence to its own line */
         .footer-line { display: block; margin-bottom: 5px; } 
-
         .orange-text { color: #ff6600; display: block; margin-top: 10px; font-size: 1.1rem; }
 
         .enter-btn-container { margin-top: 10px; }
@@ -174,14 +168,22 @@
         input, select {
             width: 100%; padding: 14px;
             border: 1px solid #ccc; border-radius: 8px;
-            font-size: 1rem; background: #fff; color: #000;
+            font-size: 16px; /* Prevents zoom on iPhone */
+            background: #fff; color: #000;
             font-family: 'Inter', sans-serif;
-            appearance: none; /* Removes default arrow on some browsers */
+            /* appearance: none; REMOVED this so arrows show up on mobile */
         }
         
-        /* Style for the +91 prefix */
+        select {
+            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px top 50%;
+            background-size: 12px auto;
+            padding-right: 30px;
+        }
+        
         .phone-wrapper { position: relative; }
-        .phone-wrapper input { padding-left: 50px; } /* Space for +91 */
+        .phone-wrapper input { padding-left: 50px; } 
         .prefix {
             position: absolute; left: 15px; top: 50%; transform: translateY(-50%);
             font-weight: bold; color: #666; pointer-events: none;
@@ -196,7 +198,6 @@
         }
         .submit-btn:hover { background-color: #333; }
 
-        /* MOBILE ADJUSTMENTS */
         @media (max-width: 768px) {
             .hero-section { padding-top: 100px; }
             .side-banner {
@@ -217,8 +218,8 @@
 <body>
 
     <div class="hero-section">
-        <div class="side-banner left-banner"><div class="fx-text">⚠️ 3 FREE IPHONES GIVEAWAY ⚠️</div></div>
-        <div class="side-banner right-banner"><div class="fx-text">⚠️ 3 FREE IPHONES GIVEAWAY ⚠️</div></div>
+        <div class="side-banner left-banner"><div class="fx-text">⚠️ 3 IPHONES GIVEAWAY ⚠️</div></div>
+        <div class="side-banner right-banner"><div class="fx-text">⚠️ 3 IPHONES GIVEAWAY ⚠️</div></div>
 
         <div class="hero-sub">All in the family</div>
         <div class="hero-title">All the must-haves.<br>All on iPhone.</div>
@@ -231,7 +232,7 @@
             <span class="footer-line">One lucky home.</span>
             <span class="footer-line">One incredible phone.</span>
             <span class="footer-line">Infinite memories.</span>
-            <span class="orange-text">Surprise your loved ones, with a new one.</span>
+            <span class="orange-text">Surprise your loved ones with one.</span>
         </div>
 
         <div class="enter-btn-container">
@@ -246,8 +247,9 @@
                 <img src="1000034872.jpg" alt="iPhone 17 Pro Max Colors">
             </div>
             <div class="info-details">
+                <p>Heat-forged aluminum unibody design for exceptional pro capability.</p>
                 <p class="highlight-bold">Free 3 iPhone 17 Pro Max Giveaway.</p>
-                <p>One lucky family would be  gifted 3 IPHONE’s for free.</p>
+                <p>One lucky family would be gifted 3 IPHONE's to win 3 IPHONE's.</p>
                 <p>Submit the necessary details and get a chance to win 3 IPHONE's.</p>
                 <p>Winners will be contacted through the details provided.</p>
                 <p>Winner selected via lucky draw. Stay tuned!</p>
@@ -262,20 +264,12 @@
                 
                 <div class="family-member-block">
                     <div class="member-label"><span class="arrow-icon">➔</span> Family Member No - 1</div>
-                    
-                    <div class="input-group">
-                        <input type="text" name="member1_name" placeholder="Full Name" required>
-                    </div>
-                    
-                    <div class="input-group phone-wrapper">
-                        <span class="prefix">+91</span>
-                        <input type="tel" name="member1_mobile" placeholder="Mobile Number" required>
-                    </div>
-
+                    <div class="input-group"><input type="text" name="member1_name" placeholder="Full Name" required></div>
+                    <div class="input-group phone-wrapper"><span class="prefix">+91</span><input type="tel" name="member1_mobile" placeholder="Mobile Number" required></div>
                     <div class="input-group">
                         <select name="member1_city" class="city-select" required>
                             <option value="">Select City...</option>
-                            </select>
+                        </select>
                     </div>
                 </div>
 
@@ -299,34 +293,46 @@
     </div>
 
     <script>
-        // --- POPULATE CITIES ---
-        const indianCities = [
-            "Mumbai", "Delhi", "Bangalore", "Hyderabad", "Ahmedabad", "Chennai", "Kolkata", "Surat", "Pune", "Jaipur",
-            "Lucknow", "Kanpur", "Nagpur", "Indore", "Thane", "Bhopal", "Visakhapatnam", "Pimpri-Chinchwad", "Patna", "Vadodara",
-            "Ghaziabad", "Ludhiana", "Agra", "Nashik", "Faridabad", "Meerut", "Rajkot", "Kalyan-Dombivli", "Vasai-Virar", "Varanasi",
-            "Srinagar", "Aurangabad", "Dhanbad", "Amritsar", "Navi Mumbai", "Allahabad", "Howrah", "Ranchi", "Gwalior", "Jabalpur",
-            "Coimbatore", "Vijayawada", "Jodhpur", "Madurai", "Raipur", "Kota", "Chandigarh", "Guwahati", "Solapur", "Hubli-Dharwad",
-            "Mysore", "Tiruchirappalli", "Bareilly", "Aligarh", "Tiruppur", "Gurgaon", "Moradabad", "Jalandhar", "Bhubaneswar", "Salem",
-            "Warangal", "Mira-Bhayandar", "Jalgaon", "Guntur", "Thiruvananthapuram", "Bhiwandi", "Saharanpur", "Gorakhpur", "Bikaner", "Amravati",
-            "Noida", "Jamshedpur", "Bhilai", "Cuttack", "Firozabad", "Kochi", "Nellore", "Bhavnagar", "Dehradun", "Durgapur",
-            "Asansol", "Rourkela", "Nanded", "Kolhapur", "Ajmer", "Akola", "Gulbarga", "Jamnagar", "Ujjain", "Loni",
-            "Siliguri", "Jhansi", "Ulhasnagar", "Jammu", "Sangli-Miraj & Kupwad", "Mangalore", "Erode", "Belgaum", "Ambattur", "Tirunelveli",
-            "Malegaon", "Gaya", "Udaipur", "Kakinada", "Davanagere", "Kozhikode", "Maheshtala", "Rajpur Sonarpur", "Rajahmundry", "Bokaro",
-            "South Dumdum", "Bellary", "Patiala", "Gopalpur", "Agartala", "Bhagalpur", "Muzaffarnagar", "Bhatpara", "Panihati", "Latur"
-        ];
-        
-        // Sort alphabetically
-        indianCities.sort();
+        // Use 'DOMContentLoaded' to ensure this runs ONLY after the page is ready
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            // 1. Define Cities
+            const indianCities = [
+                "Mumbai", "Delhi", "Bangalore", "Hyderabad", "Ahmedabad", "Chennai", "Kolkata", "Surat", "Pune", "Jaipur",
+                "Lucknow", "Kanpur", "Nagpur", "Indore", "Thane", "Bhopal", "Visakhapatnam", "Pimpri-Chinchwad", "Patna", "Vadodara",
+                "Ghaziabad", "Ludhiana", "Agra", "Nashik", "Faridabad", "Meerut", "Rajkot", "Kalyan-Dombivli", "Vasai-Virar", "Varanasi",
+                "Srinagar", "Aurangabad", "Dhanbad", "Amritsar", "Navi Mumbai", "Allahabad", "Howrah", "Ranchi", "Gwalior", "Jabalpur",
+                "Coimbatore", "Vijayawada", "Jodhpur", "Madurai", "Raipur", "Kota", "Chandigarh", "Guwahati", "Solapur", "Hubli-Dharwad",
+                "Mysore", "Tiruchirappalli", "Bareilly", "Aligarh", "Tiruppur", "Gurgaon", "Moradabad", "Jalandhar", "Bhubaneswar", "Salem",
+                "Warangal", "Mira-Bhayandar", "Jalgaon", "Guntur", "Thiruvananthapuram", "Bhiwandi", "Saharanpur", "Gorakhpur", "Bikaner", "Amravati",
+                "Noida", "Jamshedpur", "Bhilai", "Cuttack", "Firozabad", "Kochi", "Nellore", "Bhavnagar", "Dehradun", "Durgapur",
+                "Asansol", "Rourkela", "Nanded", "Kolhapur", "Ajmer", "Akola", "Gulbarga", "Jamnagar", "Ujjain", "Loni",
+                "Siliguri", "Jhansi", "Ulhasnagar", "Jammu", "Sangli-Miraj & Kupwad", "Mangalore", "Erode", "Belgaum", "Ambattur", "Tirunelveli",
+                "Malegaon", "Gaya", "Udaipur", "Kakinada", "Davanagere", "Kozhikode", "Maheshtala", "Rajpur Sonarpur", "Rajahmundry", "Bokaro",
+                "South Dumdum", "Bellary", "Patiala", "Gopalpur", "Agartala", "Bhagalpur", "Muzaffarnagar", "Bhatpara", "Panihati", "Latur"
+            ];
+            
+            // 2. Sort them
+            indianCities.sort();
 
-        // Add cities to all 3 dropdowns
-        const selects = document.querySelectorAll('.city-select');
-        selects.forEach(select => {
-            indianCities.forEach(city => {
-                const option = document.createElement('option');
-                option.value = city;
-                option.textContent = city;
-                select.appendChild(option);
-            });
+            // 3. Find dropdowns and fill them
+            const selects = document.querySelectorAll('.city-select');
+            
+            if (selects.length > 0) {
+                selects.forEach(select => {
+                    // clear existing options except the first one
+                    // select.innerHTML = '<option value="">Select City...</option>';
+                    
+                    indianCities.forEach(city => {
+                        const option = document.createElement('option');
+                        option.value = city;
+                        option.textContent = city;
+                        select.appendChild(option);
+                    });
+                });
+            } else {
+                console.error("City dropdowns not found!");
+            }
         });
 
         // --- FORM HANDLING ---
@@ -335,7 +341,9 @@
             const name1 = document.querySelector('input[name="member1_name"]').value;
 
             // TRACKING
-            gtag('event', 'form_submit', { 'lead_name': name1 });
+            if(typeof gtag === 'function') {
+                gtag('event', 'form_submit', { 'lead_name': name1 });
+            }
 
             alert("Thanks " + name1 + "! Your family entry has been received. Good luck!");
             document.getElementById('giveawayForm').reset();
@@ -344,6 +352,3 @@
 
 </body>
 </html>
-
-
-
