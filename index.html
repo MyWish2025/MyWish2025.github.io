@@ -19,7 +19,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
 
     <style>
-        /* SMOOTH SCROLLING IS KEY FOR THE "ENTER" BUTTON */
         html { scroll-behavior: smooth; }
 
         body {
@@ -31,7 +30,7 @@
         }
         * { box-sizing: border-box; }
 
-        /* --- SECTION 1: HERO (BLACK) --- */
+        /* --- SECTION 1: HERO --- */
         .hero-section {
             background-color: #000;
             color: #fff;
@@ -42,44 +41,59 @@
             justify-content: center;
             text-align: center;
             position: relative;
-            padding: 20px 20px 60px 20px; /* Added bottom padding for button space */
+            /* Added padding at top to make room for the massive banner on mobile */
+            padding: 80px 20px 40px 20px; 
         }
 
-        /* 1. NEW "FX" SIDE BANNERS (Glowing Neon Style) */
+        /* --- 1. THE MASSIVE ATTENTION BANNER --- */
         .side-banner {
             position: absolute;
             top: 0;
             bottom: 0;
-            width: 60px;
+            width: 80px; /* Wider */
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 10;
-            pointer-events: none; /* Confirms it's not a button */
+            z-index: 100;
+            background: rgba(255, 69, 0, 0.1); /* Slight red tint background */
+            border-left: 2px solid #ff4500;
+            border-right: 2px solid #ff4500;
         }
-        .left-banner { left: 0; }
-        .right-banner { right: 0; }
+        .left-banner { left: 0; border-right: none; }
+        .right-banner { right: 0; border-left: none; }
 
         .fx-text {
             writing-mode: vertical-rl;
             text-orientation: mixed;
             transform: rotate(180deg);
-            color: #fff; /* White Core */
-            font-size: 1.1rem;
-            letter-spacing: 6px;
-            font-weight: 800;
+            color: #ffcc00; /* Bright Neon Yellow-Orange */
+            font-size: 1.5rem; /* MUCH BIGGER */
+            letter-spacing: 2px;
+            font-weight: 900;
             text-transform: uppercase;
             font-family: 'Space Grotesk', sans-serif;
-            /* The "FX" Glow Effect */
+            white-space: nowrap;
             text-shadow: 
-                0 0 5px rgba(255, 102, 0, 0.8),
-                0 0 10px rgba(255, 102, 0, 0.6),
-                0 0 20px rgba(255, 102, 0, 0.4);
-            animation: neonPulse 2s infinite alternate;
+                0 0 10px #ff4500,
+                0 0 20px #ff4500,
+                0 0 40px #ff0000;
+            animation: panicPulse 0.8s infinite alternate;
         }
         
         .right-banner .fx-text { transform: none; }
 
+        @keyframes panicPulse {
+            from { opacity: 0.8; text-shadow: 0 0 10px #ff4500; transform: scale(1); }
+            to { opacity: 1; text-shadow: 0 0 30px #ffcc00, 0 0 10px #fff; transform: scale(1.05); }
+        }
+        
+        /* Mobile Animation Override (No rotation scaling) */
+        @keyframes panicPulseMobile {
+            from { opacity: 0.8; text-shadow: 0 0 10px #ff4500; }
+            to { opacity: 1; text-shadow: 0 0 30px #ffcc00, 0 0 10px #fff; }
+        }
+
+        /* Rest of Hero */
         .hero-sub {
             color: #ff6600;
             font-size: 0.85rem;
@@ -91,7 +105,7 @@
 
         .hero-title {
             font-size: clamp(2.8rem, 6vw, 4.5rem);
-            font-weight: 800; /* Extra Bold */
+            font-weight: 800;
             line-height: 1;
             margin-bottom: 25px;
             letter-spacing: -1.5px;
@@ -108,53 +122,37 @@
             display: block;
         }
 
-        /* 2. FIXED TYPOGRAPHY (Tighter, Bolder, Matching Header) */
         .hero-footer {
-            font-size: 1.3rem; /* Larger */
-            font-weight: 700;  /* Bold like header */
+            font-size: 1.3rem;
+            font-weight: 700;
             color: #fff;
             max-width: 650px;
-            line-height: 1.2;  /* Tighter spacing */
+            line-height: 1.2;
             margin-bottom: 30px;
             letter-spacing: -0.5px;
         }
-        .orange-text { 
-            color: #ff6600; 
-            display: block; /* Forces it to new line if needed */
-            margin-top: 5px;
-        }
+        .orange-text { color: #ff6600; display: block; margin-top: 5px; }
 
-        /* 3. NEW "ENTER" BUTTON (Bouncing) */
-        .enter-btn-container {
-            margin-top: 10px;
-        }
+        /* --- 2. THE BOUNCING ENTER BUTTON --- */
+        .enter-btn-container { margin-top: 10px; }
 
         .enter-btn {
             background-color: #fff;
             color: #000;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 800;
             text-transform: uppercase;
-            padding: 14px 40px;
+            padding: 16px 50px;
             border-radius: 50px;
             text-decoration: none;
             display: inline-block;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
             animation: bounce 2s infinite;
-            transition: transform 0.2s, background-color 0.2s;
         }
-
         .enter-btn:hover {
             background-color: #ff6600;
             color: #fff;
-            animation: none; /* Stop bounce on hover */
-            transform: scale(1.05);
-        }
-
-        /* ANIMATIONS */
-        @keyframes neonPulse {
-            from { opacity: 0.8; text-shadow: 0 0 10px #ff6600; }
-            to { opacity: 1; text-shadow: 0 0 25px #ff6600, 0 0 5px #fff; }
+            animation: none;
         }
 
         @keyframes bounce {
@@ -163,7 +161,7 @@
             60% {transform: translateY(-5px);}
         }
 
-        /* --- SECTION 2: GIVEAWAY (BLACK BG) --- */
+        /* --- SECTION 2: GIVEAWAY --- */
         .giveaway-section {
             display: flex;
             flex-wrap: wrap;
@@ -204,7 +202,6 @@
         }
         .info-details p { margin-bottom: 15px; }
         .highlight-bold { font-weight: 700; color: #fff; font-size: 1.2rem; }
-        
         .disclaimer {
             font-size: 0.75rem;
             color: #666;
@@ -213,7 +210,8 @@
             display: block;
         }
 
-        /* FORM SECTION (WHITE BG) */
+        /* --- 3. THE FORM (TARGET FOR SCROLL) --- */
+        /* Added ID here so the button jumps straight to this column */
         .form-col {
             flex: 1;
             padding: 50px;
@@ -221,6 +219,9 @@
             background: #fff;
             color: #000;
             font-family: 'Inter', sans-serif;
+            
+            /* Needed for the jump to land correctly */
+            scroll-margin-top: 20px; 
         }
 
         .form-header {
@@ -280,13 +281,22 @@
 
         /* MOBILE ADJUSTMENTS */
         @media (max-width: 768px) {
+            
+            /* HERO PADDING ADJUSTMENT */
+            .hero-section {
+                padding-top: 100px; /* Push content down so banner doesn't cover it */
+            }
+
+            /* MASSIVE MOBILE BANNER */
             .side-banner {
-                position: relative;
-                top: auto; bottom: auto; left: auto; right: auto;
+                position: absolute; /* Fix to absolute top of section */
+                top: 0; 
+                left: 0; 
                 width: 100%;
-                margin-bottom: 10px;
-                display: block;
-                height: auto;
+                height: 70px; /* Taller */
+                border: none;
+                border-bottom: 4px solid #ff4500;
+                background: #000;
             }
             .right-banner { display: none; }
             
@@ -295,11 +305,11 @@
                 transform: none;
                 width: 100%;
                 text-align: center;
-                font-size: 1rem;
-                padding: 10px 0;
+                font-size: 1.4rem; /* Big font for mobile */
+                padding: 0;
+                animation: panicPulseMobile 0.8s infinite alternate;
             }
 
-            .hero-section { padding: 40px 20px; }
             .giveaway-section { flex-direction: column; }
             .info-col, .form-col { padding: 40px 25px; border: none; }
         }
@@ -310,10 +320,10 @@
     <div class="hero-section">
         
         <div class="side-banner left-banner">
-            <div class="fx-text">✨ 3 IPHONES GIVEAWAY ✨</div>
+            <div class="fx-text">⚠️ 3 IPHONES GIVEAWAY ⚠️</div>
         </div>
         <div class="side-banner right-banner">
-            <div class="fx-text">✨ 3 IPHONES GIVEAWAY ✨</div>
+            <div class="fx-text">⚠️ 3 IPHONES GIVEAWAY ⚠️</div>
         </div>
 
         <div class="hero-sub">All in the family</div>
@@ -329,11 +339,11 @@
         </div>
 
         <div class="enter-btn-container">
-            <a href="#form-section" class="enter-btn">Enter Now ↓</a>
+            <a href="#enter-details-here" class="enter-btn">Enter Now ↓</a>
         </div>
     </div>
 
-    <div id="form-section" class="giveaway-section">
+    <div class="giveaway-section">
         
         <div class="info-col">
             <div class="info-title">
@@ -355,7 +365,7 @@
             </div>
         </div>
 
-        <div class="form-col">
+        <div id="enter-details-here" class="form-col">
             <div class="form-header">
                 Drop your name, cross your fingers, and that's it!
             </div>
@@ -400,5 +410,6 @@
 
 </body>
 </html>
+
 
 
