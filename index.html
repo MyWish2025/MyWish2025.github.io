@@ -41,120 +41,78 @@
             justify-content: center;
             text-align: center;
             position: relative;
-            /* Added padding at top to make room for the massive banner on mobile */
-            padding: 80px 20px 40px 20px; 
+            /* Reduced padding to remove empty space */
+            padding: 80px 20px 20px 20px; 
         }
 
-        /* --- 1. THE MASSIVE ATTENTION BANNER --- */
+        /* BANNER STYLES */
         .side-banner {
             position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 80px; /* Wider */
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            top: 0; bottom: 0; width: 80px;
+            display: flex; align-items: center; justify-content: center;
             z-index: 100;
-            background: rgba(255, 69, 0, 0.1); /* Slight red tint background */
-            border-left: 2px solid #ff4500;
-            border-right: 2px solid #ff4500;
+            background: rgba(255, 69, 0, 0.1);
+            border-left: 2px solid #ff4500; border-right: 2px solid #ff4500;
         }
         .left-banner { left: 0; border-right: none; }
         .right-banner { right: 0; border-left: none; }
 
         .fx-text {
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-            transform: rotate(180deg);
-            color: #ffcc00; /* Bright Neon Yellow-Orange */
-            font-size: 1.5rem; /* MUCH BIGGER */
-            letter-spacing: 2px;
-            font-weight: 900;
-            text-transform: uppercase;
-            font-family: 'Space Grotesk', sans-serif;
-            white-space: nowrap;
-            text-shadow: 
-                0 0 10px #ff4500,
-                0 0 20px #ff4500,
-                0 0 40px #ff0000;
+            writing-mode: vertical-rl; text-orientation: mixed; transform: rotate(180deg);
+            color: #ffcc00; font-size: 1.5rem; letter-spacing: 2px;
+            font-weight: 900; text-transform: uppercase;
+            font-family: 'Space Grotesk', sans-serif; white-space: nowrap;
+            text-shadow: 0 0 10px #ff4500, 0 0 20px #ff4500;
             animation: panicPulse 0.8s infinite alternate;
         }
-        
         .right-banner .fx-text { transform: none; }
 
         @keyframes panicPulse {
             from { opacity: 0.8; text-shadow: 0 0 10px #ff4500; transform: scale(1); }
-            to { opacity: 1; text-shadow: 0 0 30px #ffcc00, 0 0 10px #fff; transform: scale(1.05); }
+            to { opacity: 1; text-shadow: 0 0 30px #ffcc00; transform: scale(1.05); }
         }
-        
-        /* Mobile Animation Override (No rotation scaling) */
         @keyframes panicPulseMobile {
             from { opacity: 0.8; text-shadow: 0 0 10px #ff4500; }
-            to { opacity: 1; text-shadow: 0 0 30px #ffcc00, 0 0 10px #fff; }
+            to { opacity: 1; text-shadow: 0 0 30px #ffcc00; }
         }
 
-        /* Rest of Hero */
         .hero-sub {
-            color: #ff6600;
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
-            text-transform: uppercase;
+            color: #ff6600; font-size: 0.85rem; font-weight: 700;
+            letter-spacing: 2px; margin-bottom: 12px; text-transform: uppercase;
         }
 
         .hero-title {
-            font-size: clamp(2.8rem, 6vw, 4.5rem);
-            font-weight: 800;
-            line-height: 1;
-            margin-bottom: 25px;
-            letter-spacing: -1.5px;
+            font-size: clamp(2.8rem, 6vw, 4.5rem); font-weight: 800;
+            line-height: 1; margin-bottom: 15px; letter-spacing: -1.5px;
         }
 
         .hero-image-container {
-            width: 100%;
-            max-width: 550px;
-            margin: 10px 0 30px 0;
+            width: 100%; max-width: 550px;
+            /* Reduced margins to tighten space */
+            margin: 10px 0 15px 0; 
         }
-        .hero-image-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+        .hero-image-container img { width: 100%; height: auto; display: block; }
 
+        /* FIXED FOOTER TEXT - 3 LINES */
         .hero-footer {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #fff;
-            max-width: 650px;
-            line-height: 1.2;
-            margin-bottom: 30px;
-            letter-spacing: -0.5px;
+            font-size: 1.4rem; font-weight: 700; color: #fff;
+            max-width: 650px; line-height: 1.3;
+            margin-bottom: 20px; letter-spacing: -0.5px;
         }
-        .orange-text { color: #ff6600; display: block; margin-top: 5px; }
+        /* Forces each sentence to its own line */
+        .footer-line { display: block; margin-bottom: 5px; } 
 
-        /* --- 2. THE BOUNCING ENTER BUTTON --- */
+        .orange-text { color: #ff6600; display: block; margin-top: 10px; font-size: 1.1rem; }
+
         .enter-btn-container { margin-top: 10px; }
-
         .enter-btn {
-            background-color: #fff;
-            color: #000;
-            font-size: 1.1rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            padding: 16px 50px;
-            border-radius: 50px;
-            text-decoration: none;
-            display: inline-block;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+            background-color: #fff; color: #000;
+            font-size: 1.1rem; font-weight: 800; text-transform: uppercase;
+            padding: 16px 50px; border-radius: 50px; text-decoration: none;
+            display: inline-block; box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
             animation: bounce 2s infinite;
         }
-        .enter-btn:hover {
-            background-color: #ff6600;
-            color: #fff;
-            animation: none;
-        }
-
+        .enter-btn:hover { background-color: #ff6600; color: #fff; animation: none; }
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
             40% {transform: translateY(-10px);}
@@ -162,154 +120,95 @@
         }
 
         /* --- SECTION 2: GIVEAWAY --- */
-        .giveaway-section {
-            display: flex;
-            flex-wrap: wrap;
-            min-height: 100vh;
-        }
+        .giveaway-section { display: flex; flex-wrap: wrap; min-height: 100vh; }
 
         .info-col {
-            flex: 1;
-            padding: 50px;
-            min-width: 320px;
-            background-color: #000; 
-            color: #fff;
+            flex: 1; padding: 50px; min-width: 320px;
+            background-color: #000; color: #fff;
             font-family: 'Space Grotesk', sans-serif; 
         }
 
         .info-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            line-height: 0.95;
-            margin-bottom: 25px;
-            text-transform: uppercase;
+            font-size: 2.5rem; font-weight: 700; line-height: 0.95;
+            margin-bottom: 25px; text-transform: uppercase;
         }
 
-        .product-image-container {
-            width: 100%;
-            margin: 30px 0;
-        }
-        .product-image-container img {
-            width: 100%;
-            border-radius: 12px;
-            display: block;
-        }
+        .product-image-container { width: 100%; margin: 30px 0; }
+        .product-image-container img { width: 100%; border-radius: 12px; display: block; }
 
-        .info-details {
-            font-size: 1.1rem;
-            line-height: 1.4;
-            color: #ccc;
-        }
+        .info-details { font-size: 1.1rem; line-height: 1.4; color: #ccc; }
         .info-details p { margin-bottom: 15px; }
         .highlight-bold { font-weight: 700; color: #fff; font-size: 1.2rem; }
         .disclaimer {
-            font-size: 0.75rem;
-            color: #666;
-            font-style: italic;
-            margin-top: 40px;
-            display: block;
+            font-size: 0.75rem; color: #666; font-style: italic;
+            margin-top: 40px; display: block;
         }
 
-        /* --- 3. THE FORM (TARGET FOR SCROLL) --- */
-        /* Added ID here so the button jumps straight to this column */
+        /* --- FORM SECTION --- */
         .form-col {
-            flex: 1;
-            padding: 50px;
-            min-width: 320px;
-            background: #fff;
-            color: #000;
+            flex: 1; padding: 50px; min-width: 320px;
+            background: #fff; color: #000;
             font-family: 'Inter', sans-serif;
-            
-            /* Needed for the jump to land correctly */
             scroll-margin-top: 20px; 
         }
 
         .form-header {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            line-height: 1;
+            font-size: 2.2rem; font-weight: 800; margin-bottom: 30px;
+            text-transform: uppercase; line-height: 1;
             font-family: 'Space Grotesk', sans-serif;
         }
 
         .family-member-block {
-            margin-bottom: 25px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 20px;
+            margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 25px;
         }
 
         .member-label {
-            display: flex;
-            align-items: center;
-            font-weight: 700;
-            font-size: 1rem;
-            margin-bottom: 10px;
-            color: #000;
+            display: flex; align-items: center; font-weight: 700;
+            font-size: 1rem; margin-bottom: 15px; color: #000;
         }
-
         .arrow-icon { color: #ff6600; margin-right: 10px; font-weight: 900; }
 
-        input {
-            width: 100%;
-            padding: 16px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 1rem;
-            background: #fff;
-            color: #000;
+        /* INPUT STYLES */
+        .input-group { position: relative; width: 100%; margin-bottom: 12px; }
+        
+        input, select {
+            width: 100%; padding: 14px;
+            border: 1px solid #ccc; border-radius: 8px;
+            font-size: 1rem; background: #fff; color: #000;
             font-family: 'Inter', sans-serif;
+            appearance: none; /* Removes default arrow on some browsers */
+        }
+        
+        /* Style for the +91 prefix */
+        .phone-wrapper { position: relative; }
+        .phone-wrapper input { padding-left: 50px; } /* Space for +91 */
+        .prefix {
+            position: absolute; left: 15px; top: 50%; transform: translateY(-50%);
+            font-weight: bold; color: #666; pointer-events: none;
         }
 
         .submit-btn {
-            width: 100%;
-            padding: 20px;
-            background-color: #000;
-            color: #fff;
-            font-size: 1.1rem;
-            font-weight: 700;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            text-transform: uppercase;
-            margin-top: 20px;
-            letter-spacing: 1px;
+            width: 100%; padding: 20px; background-color: #000;
+            color: #fff; font-size: 1.1rem; font-weight: 700;
+            border: none; border-radius: 10px; cursor: pointer;
+            text-transform: uppercase; margin-top: 20px; letter-spacing: 1px;
             transition: background 0.3s;
         }
         .submit-btn:hover { background-color: #333; }
 
         /* MOBILE ADJUSTMENTS */
         @media (max-width: 768px) {
-            
-            /* HERO PADDING ADJUSTMENT */
-            .hero-section {
-                padding-top: 100px; /* Push content down so banner doesn't cover it */
-            }
-
-            /* MASSIVE MOBILE BANNER */
+            .hero-section { padding-top: 100px; }
             .side-banner {
-                position: absolute; /* Fix to absolute top of section */
-                top: 0; 
-                left: 0; 
-                width: 100%;
-                height: 70px; /* Taller */
-                border: none;
-                border-bottom: 4px solid #ff4500;
-                background: #000;
+                position: absolute; top: 0; left: 0; width: 100%; height: 70px;
+                border: none; border-bottom: 4px solid #ff4500; background: #000;
             }
             .right-banner { display: none; }
-            
             .fx-text {
-                writing-mode: horizontal-tb;
-                transform: none;
-                width: 100%;
-                text-align: center;
-                font-size: 1.4rem; /* Big font for mobile */
-                padding: 0;
+                writing-mode: horizontal-tb; transform: none; width: 100%;
+                text-align: center; font-size: 1.4rem; padding: 0;
                 animation: panicPulseMobile 0.8s infinite alternate;
             }
-
             .giveaway-section { flex-direction: column; }
             .info-col, .form-col { padding: 40px 25px; border: none; }
         }
@@ -318,13 +217,8 @@
 <body>
 
     <div class="hero-section">
-        
-        <div class="side-banner left-banner">
-            <div class="fx-text">⚠️ 3 IPHONES GIVEAWAY ⚠️</div>
-        </div>
-        <div class="side-banner right-banner">
-            <div class="fx-text">⚠️ 3 IPHONES GIVEAWAY ⚠️</div>
-        </div>
+        <div class="side-banner left-banner"><div class="fx-text">⚠️ 3 IPHONES GIVEAWAY ⚠️</div></div>
+        <div class="side-banner right-banner"><div class="fx-text">⚠️ 3 IPHONES GIVEAWAY ⚠️</div></div>
 
         <div class="hero-sub">All in the family</div>
         <div class="hero-title">All the must-haves.<br>All on iPhone.</div>
@@ -334,7 +228,9 @@
         </div>
 
         <div class="hero-footer">
-            One lucky home. One incredible phone. Infinite memories.
+            <span class="footer-line">One lucky home.</span>
+            <span class="footer-line">One incredible phone.</span>
+            <span class="footer-line">Infinite memories.</span>
             <span class="orange-text">Surprise your loved ones with one.</span>
         </div>
 
@@ -344,16 +240,11 @@
     </div>
 
     <div class="giveaway-section">
-        
         <div class="info-col">
-            <div class="info-title">
-                Treat your family to the iPhone 17 Pro Max Experience.
-            </div>
-            
+            <div class="info-title">Treat your family to the iPhone 17 Pro Max Experience.</div>
             <div class="product-image-container">
                 <img src="1000034872.jpg" alt="iPhone 17 Pro Max Colors">
             </div>
-
             <div class="info-details">
                 <p>Heat-forged aluminum unibody design for exceptional pro capability.</p>
                 <p class="highlight-bold">Free 3 iPhone 17 Pro Max Giveaway.</p>
@@ -366,28 +257,41 @@
         </div>
 
         <div id="enter-details-here" class="form-col">
-            <div class="form-header">
-                Drop your name, cross your fingers, and that's it!
-            </div>
+            <div class="form-header">Drop your name, cross your fingers, and that's it!</div>
 
             <form id="giveawayForm" onsubmit="handleForm(event)">
                 
                 <div class="family-member-block">
                     <div class="member-label"><span class="arrow-icon">➔</span> Family Member No - 1</div>
-                    <input type="text" name="member1_name" placeholder="Full Name" required>
-                    <input type="tel" name="member1_mobile" placeholder="Mobile Number" required>
+                    
+                    <div class="input-group">
+                        <input type="text" name="member1_name" placeholder="Full Name" required>
+                    </div>
+                    
+                    <div class="input-group phone-wrapper">
+                        <span class="prefix">+91</span>
+                        <input type="tel" name="member1_mobile" placeholder="Mobile Number" required>
+                    </div>
+
+                    <div class="input-group">
+                        <select name="member1_city" class="city-select" required>
+                            <option value="">Select City...</option>
+                            </select>
+                    </div>
                 </div>
 
                 <div class="family-member-block">
                     <div class="member-label"><span class="arrow-icon">➔</span> Family Member No - 2</div>
-                    <input type="text" name="member2_name" placeholder="Full Name">
-                    <input type="tel" name="member2_mobile" placeholder="Mobile Number">
+                    <div class="input-group"><input type="text" name="member2_name" placeholder="Full Name"></div>
+                    <div class="input-group phone-wrapper"><span class="prefix">+91</span><input type="tel" name="member2_mobile" placeholder="Mobile Number"></div>
+                    <div class="input-group"><select name="member2_city" class="city-select"><option value="">Select City...</option></select></div>
                 </div>
 
                 <div class="family-member-block">
                     <div class="member-label"><span class="arrow-icon">➔</span> Family Member No - 3</div>
-                    <input type="text" name="member3_name" placeholder="Full Name">
-                    <input type="tel" name="member3_mobile" placeholder="Mobile Number">
+                    <div class="input-group"><input type="text" name="member3_name" placeholder="Full Name"></div>
+                    <div class="input-group phone-wrapper"><span class="prefix">+91</span><input type="tel" name="member3_mobile" placeholder="Mobile Number"></div>
+                    <div class="input-group"><select name="member3_city" class="city-select"><option value="">Select City...</option></select></div>
                 </div>
 
                 <button type="submit" class="submit-btn">Submit</button>
@@ -396,6 +300,37 @@
     </div>
 
     <script>
+        // --- POPULATE CITIES ---
+        const indianCities = [
+            "Mumbai", "Delhi", "Bangalore", "Hyderabad", "Ahmedabad", "Chennai", "Kolkata", "Surat", "Pune", "Jaipur",
+            "Lucknow", "Kanpur", "Nagpur", "Indore", "Thane", "Bhopal", "Visakhapatnam", "Pimpri-Chinchwad", "Patna", "Vadodara",
+            "Ghaziabad", "Ludhiana", "Agra", "Nashik", "Faridabad", "Meerut", "Rajkot", "Kalyan-Dombivli", "Vasai-Virar", "Varanasi",
+            "Srinagar", "Aurangabad", "Dhanbad", "Amritsar", "Navi Mumbai", "Allahabad", "Howrah", "Ranchi", "Gwalior", "Jabalpur",
+            "Coimbatore", "Vijayawada", "Jodhpur", "Madurai", "Raipur", "Kota", "Chandigarh", "Guwahati", "Solapur", "Hubli-Dharwad",
+            "Mysore", "Tiruchirappalli", "Bareilly", "Aligarh", "Tiruppur", "Gurgaon", "Moradabad", "Jalandhar", "Bhubaneswar", "Salem",
+            "Warangal", "Mira-Bhayandar", "Jalgaon", "Guntur", "Thiruvananthapuram", "Bhiwandi", "Saharanpur", "Gorakhpur", "Bikaner", "Amravati",
+            "Noida", "Jamshedpur", "Bhilai", "Cuttack", "Firozabad", "Kochi", "Nellore", "Bhavnagar", "Dehradun", "Durgapur",
+            "Asansol", "Rourkela", "Nanded", "Kolhapur", "Ajmer", "Akola", "Gulbarga", "Jamnagar", "Ujjain", "Loni",
+            "Siliguri", "Jhansi", "Ulhasnagar", "Jammu", "Sangli-Miraj & Kupwad", "Mangalore", "Erode", "Belgaum", "Ambattur", "Tirunelveli",
+            "Malegaon", "Gaya", "Udaipur", "Kakinada", "Davanagere", "Kozhikode", "Maheshtala", "Rajpur Sonarpur", "Rajahmundry", "Bokaro",
+            "South Dumdum", "Bellary", "Patiala", "Gopalpur", "Agartala", "Bhagalpur", "Muzaffarnagar", "Bhatpara", "Panihati", "Latur"
+        ];
+        
+        // Sort alphabetically
+        indianCities.sort();
+
+        // Add cities to all 3 dropdowns
+        const selects = document.querySelectorAll('.city-select');
+        selects.forEach(select => {
+            indianCities.forEach(city => {
+                const option = document.createElement('option');
+                option.value = city;
+                option.textContent = city;
+                select.appendChild(option);
+            });
+        });
+
+        // --- FORM HANDLING ---
         function handleForm(event) {
             event.preventDefault();
             const name1 = document.querySelector('input[name="member1_name"]').value;
@@ -410,6 +345,5 @@
 
 </body>
 </html>
-
 
 
